@@ -16,7 +16,7 @@ ENV PATH=/opt/venv/bin:$PATH \
 
 COPY --chmod=755 docker/apt-retry.sh /usr/local/bin/apt-retry.sh
 # indexed-zstd has no ARM64 wheel and is built from source by camoufox/fpgen.
-RUN apt-retry.sh build-essential ca-certificates libzstd-dev python3 python3-pip python3-venv
+RUN apt-retry.sh build-essential ca-certificates libzstd-dev python3 python3-dev python3-pip python3-venv
 
 WORKDIR /build
 COPY requirements.txt ./
