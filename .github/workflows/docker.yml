@@ -65,10 +65,10 @@ jobs:
         id: platforms
         shell: bash
         run: |
-          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
-            echo "value=linux/amd64,linux/arm64" >> "$GITHUB_OUTPUT"
-          else
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
             echo "value=linux/amd64" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=linux/amd64,linux/arm64" >> "$GITHUB_OUTPUT"
           fi
       - name: Resolve application version
         id: app_version

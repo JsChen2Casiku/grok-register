@@ -169,7 +169,7 @@ echo "$GITHUB_TOKEN" | docker login ghcr.io -u GITHUB_USER --password-stdin
 
 GitHub Actions 规则：
 
-- `master` / `main`：构建并发布 amd64
+- `master` / `main`：构建并发布 amd64、arm64
 - `v*` 标签：构建并发布 amd64、arm64，同时创建 GitHub Release
 - Pull Request：只测试和构建，不发布
 - `workflow_dispatch`：支持手动触发

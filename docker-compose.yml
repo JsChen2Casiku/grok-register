@@ -1,9 +1,6 @@
 services:
   grok-register:
-    image: ${GROK_REGISTER_IMAGE:-grok-register:local}
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ${GROK_REGISTER_IMAGE:-ghcr.io/jschen2casiku/grok-register:latest}
     container_name: grok-register
     init: true
     restart: unless-stopped
