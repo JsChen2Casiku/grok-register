@@ -15,7 +15,8 @@ ENV PATH=/opt/venv/bin:$PATH \
     XDG_CACHE_HOME=/opt/camoufox-cache
 
 COPY --chmod=755 docker/apt-retry.sh /usr/local/bin/apt-retry.sh
-RUN apt-retry.sh ca-certificates python3 python3-pip python3-venv
+# indexed-zstd has no ARM64 wheel and is built from source by camoufox/fpgen.
+RUN apt-retry.sh build-essential ca-certificates python3 python3-pip python3-venv
 
 WORKDIR /build
 COPY requirements.txt ./
